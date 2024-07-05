@@ -1,4 +1,4 @@
-var product1 = document.getElementById("product1");
+el product1 = document.getElementById("product1");
 var qty1 = document.getElementById("qty1");
 var price1 = document.getElementById("price1");
 
@@ -26,52 +26,53 @@ var carts = document.getElementById("carts");
 var total = document.getElementById("total");
 var cash = document.getElementById("cash");
 var change = document.getElementById("change");
-
+document. getElementById('cash'). onkeyup= calcuteChange;
 function addOrder() {
   carts.textContent = "";
-  var totalValue = 0;
+  let totalAmount = 0;
   if (parseFloat(qty1.value) > 0) {
     var order = qty1.value.toString() + ' pc/s x ' + price1.textContent + '------' + product1.textContent + '------PHP ' + (parseFloat(qty1.value) * parseFloat(price1.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty1.value) * parseFloat(price1.textContent);
+    totalAmount += parseFloat(qty1.value) * parseFloat(price1.textContent);
   }
   if (parseFloat(qty2.value) > 0) {
     var order = qty2.value.toString() + ' pc/s x ' + price2.textContent + '------' + product2.textContent + '------PHP ' + (parseFloat(qty2.value) * parseFloat(price2.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty2.value) * parseFloat(price2.textContent);
+    totalAmount+= parseFloat(qty2.value) * parseFloat(price2.textContent);
   }
   if (parseFloat(qty3.value) > 0) {
     var order = qty3.value.toString() + ' pc/s x ' + price3.textContent + '------' + product3.textContent + '------PHP ' + (parseFloat(qty3.value) * parseFloat(price3.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty3.value) * parseFloat(price3.textContent);
+    totalAmount+= parseFloat(qty3.value) * parseFloat(price3.textContent);
   }
   if (parseFloat(qty4.value) > 0) {
     var order = qty4.value.toString() + ' pc/s x ' + price4.textContent + '------' + product4.textContent + '------PHP ' + (parseFloat(qty4.value) * parseFloat(price4.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty4.value) * parseFloat(price4.textContent);
+    totalAmount += parseFloat(qty4.value) * parseFloat(price4.textContent);
   }
   if (parseFloat(qty5.value) > 0) {
     var order = qty5.value.toString() + ' pc/s x ' + price5.textContent + '------' + product5.textContent + '------PHP ' + (parseFloat(qty5.value) * parseFloat(price5.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty5.value) * parseFloat(price5.textContent);
+    totalAmount += parseFloat(qty5.value) * parseFloat(price5.textContent);
   }
   if (parseFloat(qty6.value) > 0) {
     var order = qty6.value.toString() + ' pc/s x ' + price6.textContent + '------' + product6.textContent + '------PHP ' + (parseFloat(qty6.value) * parseFloat(price6.textContent)) + '\n';
     carts.textContent += order;
-    totalValue += parseFloat(qty6.value) * parseFloat(price6.textContent);
+    totalAmount += parseFloat(qty6.value) * parseFloat(price6.textContent);
   }
-  total.value = "Total: PHP " + totalValue.toFixed(6);
+  total.value =totalAmount.toFixed(6);
+  calcuteChange();
 }
 
+
 function calculateChange() {
-  var cashValue = parseFloat(cash.value);
-  var changeValue;
-  if (cashValue >= totalValue) {
-    changeValue = cashValue - totalValue;
-  } else {
-    changeValue = "Insufficient funds";
+  let totalAmount = parseFloat(total.value);
+  let cashTendered = parseFloat(cash.value);
+  if (!isNaN(cashTendered) && cashTendered >= totalAmount {
+    change.value = (cashTendered - totalAmount).toFixed(6);
+} else {
+  change.value= '''';
   }
-  change.value = "Change: PHP " + changeValue.toFixed(6);
 }
 
 
