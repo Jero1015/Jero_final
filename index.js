@@ -73,12 +73,13 @@ function calculateChange() {
   }
   change.value = "Change: PHP " + changeValue.toFixed(6);
 }
+}
 
-qty1.addEventListener("input", addOrder);
-qty2.addEventListener("input", addOrder)
-qty3.addEventListener("input", addOrder);
-qty4.addEventListener("input", addOrder);
-qty5.addEventListener("input", addOrder);
-qty6.addEventListener("input", addOrder);
+qty1.addEventListener("keyup", addOrder);
+qty2.addEventListener("keyup", addOrder)
+qty3.addEventListener("keyup", addOrder);
+qty4.addEventListener("keyup", addOrder);
+qty5.addEventListener("keyup", addOrder);
+qty6.addEventListener("keyup", addOrder);
 
-cash.addEventListener("input", calculateChange);
+cash.addEventListener("keyup", calculateChange);
